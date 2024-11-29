@@ -23,6 +23,27 @@ where
     pub data: Option<T>,
 }
 
+impl<T, M> RespVo<T>
+where
+    T: Serialize + Clone + Default + Send + Sync,
+    M: ToString,
+{
+    pub fn ok_msg(data: Vec<T>, msg: M) -> Self<T> {
+        RespVo {
+            code: 0,
+            data: Some(data),
+            msg: msg.to_string(),
+        }
+    }
+    pub fn err_msg(msg: M) -> Self<T> {
+        RespVo {
+            code: -1,
+            data: None,
+            msg: msg.to_string(),
+        }
+    }
+}
+
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
 pub struct VecRespVo<T>
@@ -32,6 +53,27 @@ where
     pub code: i32,
     pub msg: String,
     pub data: Option<Vec<T>>,
+}
+
+impl<T, M> VecRespVo<T>
+where
+    T: Serialize + Clone + Default + Send + Sync,
+    M: ToString,
+{
+    pub fn ok_msg(data: Vec<T>, msg: M) -> VecRespVo<T> {
+        VecRespVo {
+            code: 0,
+            data: Some(data),
+            msg: msg.to_string(),
+        }
+    }
+    pub fn err_msg(msg: M) -> VecRespVo<T> {
+        VecRespVo {
+            code: -1,
+            data: None,
+            msg: msg.to_string(),
+        }
+    }
 }
 
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
