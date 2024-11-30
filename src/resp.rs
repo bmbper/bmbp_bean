@@ -23,19 +23,24 @@ where
     pub data: Option<T>,
 }
 
-impl<T, M> RespVo<T>
+impl<T> RespVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
-    M: ToString,
 {
-    pub fn ok_msg(data: Vec<T>, msg: M) -> Self<T> {
+    pub fn ok_msg<M>(data: T, msg: M) -> RespVo<T>
+    where
+        M: ToString,
+    {
         RespVo {
             code: 0,
             data: Some(data),
             msg: msg.to_string(),
         }
     }
-    pub fn err_msg(msg: M) -> Self<T> {
+    pub fn err_msg<M>(msg: M) -> RespVo<T>
+    where
+        M: ToString,
+    {
         RespVo {
             code: -1,
             data: None,
@@ -55,19 +60,24 @@ where
     pub data: Option<Vec<T>>,
 }
 
-impl<T, M> VecRespVo<T>
+impl<T> VecRespVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
-    M: ToString,
 {
-    pub fn ok_msg(data: Vec<T>, msg: M) -> VecRespVo<T> {
+    pub fn ok_msg<M>(data: Vec<T>, msg: M) -> VecRespVo<T>
+    where
+        M: ToString,
+    {
         VecRespVo {
             code: 0,
             data: Some(data),
             msg: msg.to_string(),
         }
     }
-    pub fn err_msg(msg: M) -> VecRespVo<T> {
+    pub fn err_msg<M>(msg: M) -> VecRespVo<T>
+    where
+        M: ToString,
+    {
         VecRespVo {
             code: -1,
             data: None,
