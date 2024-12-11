@@ -1,3 +1,4 @@
+mod bean;
 mod error;
 mod req;
 mod resp;

@@ -9,3 +9,12 @@ where
     pub page_size: usize,
     pub params: Option<T>,
 }
+
+#[derive(Debug, Default, Clone, Deserialize, Serialize)]
+#[serde(default)]
+pub struct BmbpBatchVo<T>
+where
+    T: Serialize + Clone + Default + Send + Sync,
+{
+    pub batch_vo: Vec<T>,
+}
