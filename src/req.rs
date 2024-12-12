@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
-pub struct BmbpPageReq<T>
+pub struct BmbpPageVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {

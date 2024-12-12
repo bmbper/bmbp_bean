@@ -10,17 +10,17 @@ pub struct BmbpComboVo {
 
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
-pub struct CountVo {
+pub struct BmbpCountVo {
     pub label: String,
     pub code: String,
     pub value: String,
     pub count: i64,
-    pub children: Vec<CountVo>,
+    pub children: Vec<BmbpCountVo>,
 }
 
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
-pub struct IdNameVo {
+pub struct BmbpIdNameVo {
     pub id: String,
     pub name: String,
 }

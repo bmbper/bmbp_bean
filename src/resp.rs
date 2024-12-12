@@ -18,7 +18,7 @@ pub struct RespVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {
-    pub code: i32,
+    pub code: String,
     pub msg: String,
     pub data: Option<T>,
 }
@@ -32,7 +32,7 @@ where
         M: ToString,
     {
         RespVo {
-            code: 0,
+            code: "0".to_string(),
             data: Some(data),
             msg: msg.to_string(),
         }
@@ -42,7 +42,7 @@ where
         M: ToString,
     {
         RespVo {
-            code: -1,
+            code: "-1".to_string(),
             data: None,
             msg: msg.to_string(),
         }
@@ -55,7 +55,7 @@ pub struct VecRespVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {
-    pub code: i32,
+    pub code: String,
     pub msg: String,
     pub data: Option<Vec<T>>,
 }
@@ -69,7 +69,7 @@ where
         M: ToString,
     {
         VecRespVo {
-            code: 0,
+            code: "0".to_string(),
             data: Some(data),
             msg: msg.to_string(),
         }
@@ -79,7 +79,7 @@ where
         M: ToString,
     {
         VecRespVo {
-            code: -1,
+            code: "-1".to_string(),
             data: None,
             msg: msg.to_string(),
         }
@@ -92,7 +92,7 @@ pub struct PageRespVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {
-    pub code: i32,
+    pub code: String,
     pub msg: String,
     pub data: Option<PageData<T>>,
 }
