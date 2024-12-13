@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
-pub struct BmbpPageVo<T>
+pub struct PageVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {
@@ -12,7 +12,7 @@ where
 
 #[derive(Debug, Default, Clone, Deserialize, Serialize)]
 #[serde(default)]
-pub struct BmbpBatchVo<T>
+pub struct BatchVo<T>
 where
     T: Serialize + Clone + Default + Send + Sync,
 {
