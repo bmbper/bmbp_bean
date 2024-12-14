@@ -21,6 +21,13 @@ where
             msg: msg.to_string(),
         }
     }
+    pub fn query_op_ok(data: Option<T>, msg: &str) -> RespVo<T> {
+        RespVo {
+            code: "0".to_string(),
+            data,
+            msg: msg.to_string(),
+        }
+    }
 }
 
 impl<T> RespVo<T>
